@@ -1,86 +1,84 @@
-import React, { useEffect, useRef } from 'react'
-import styled from 'styled-components'
-import { Anchor, Link } from '../components/AllSvgs'
+import React, { useEffect, useRef } from "react";
+import styled from "styled-components";
+import { Anchor, Link } from "../components/AllSvgs";
 
 const Container = styled.div`
-position: relative;
-`
+  position: relative;
+`;
 const Slider = styled.div`
-position: fixed;
-top: 0;
-right: 2rem;
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-transform: translateY(-100%);
+  position: fixed;
+  top: 0;
+  right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  transform: translateY(-100%);
 
-.chain{
-transform: rotate(135deg);
-
-}
-
-`
+  .chain {
+    transform: rotate(135deg);
+  }
+`;
 
 const PreDisplay = styled.div`
-position: absolute;
-top:0;
-right: 2rem;
-`
-
+  position: absolute;
+  top: 0;
+  right: 2rem;
+`;
 
 const AnchorComponent = (props) => {
+  const ref = useRef(null);
+  const hiddenRef = useRef(null);
 
-    const ref = useRef(null);
-    const hiddenRef = useRef(null);
+  useEffect(() => {
+    let scrollPosition = 0;
+    const handleScroll = () => {
+      const newScrollPosition = window.pageYOffset;
+      if (scrollPosition !== newScrollPosition) {
+        requestAnimationFrame(() => updatePosition(newScrollPosition));
+      }
+      scrollPosition = newScrollPosition;
+    };
 
-    useEffect(() => {
-        
-        const handleScroll = () => {
+    const updatePosition = (scrollPosition) => {
+      const windowSize = window.innerHeight;
+      const bodyHeight = document.body.offsetHeight;
+      const diff = Math.max(bodyHeight - (scrollPosition + windowSize));
+      const diffP = (diff * 100) / (bodyHeight - windowSize);
+      ref.current.style.transform = `translateY(${-diffP}%)`;
 
-            let scrollPosition = window.pageYOffset;
-            let windowSize = window.innerHeight;
-            let bodyHeight = document.body.offsetHeight;
-            
-            let diff = Math.max(bodyHeight - (scrollPosition + windowSize) )
-            //diff*100/scrollposition
-            let diffP = (diff * 100) / (bodyHeight - windowSize);
+      if (scrollPosition > 5) {
+        hiddenRef.current.style.display = "none";
+      } else {
+        hiddenRef.current.style.display = "block";
+      }
+    };
 
-            ref.current.style.transform = `translateY(${-diffP}%)`
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-            if(window.pageYOffset > 5){
-                hiddenRef.current.style.display = 'none'
-            }else{
-                hiddenRef.current.style.display = 'block'
+  return (
+    <Container>
+      <PreDisplay ref={hiddenRef} className="hidden" aria-hidden="true">
+        <Anchor width={70} height={70} fill="currentColor" />
+      </PreDisplay>
+      <Slider ref={ref}>
+        {[...Array(props.number)].map((x, id) => {
+          return (
+            <Link
+              key={id}
+              width={25}
+              height={25}
+              fill="currentColor"
+              className="chain"
+            />
+          );
+        })}
+        <Anchor width={70} height={70} fill="currentColor" />
+      </Slider>
+    </Container>
+  );
+};
 
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll)
-
-        return () =>  window.removeEventListener('scroll', handleScroll)
-
-
-    }, [])
-
-
-
-    return (
-        <Container>
-        <PreDisplay ref={hiddenRef} className='hidden'>
-    
-        <Anchor width={70} height={70} fill='currentColor'/>
-    </PreDisplay>
-            <Slider ref={ref}>
-                {
-                    [...Array(props.number)].map((x,id) => {
-                        return <Link key={id} width={25} height={25} fill='currentColor' className="chain" />
-                    })
-                }
-                <Anchor width={70} height={70} fill='currentColor'/>
-            </Slider>
-        </Container>
-    )
-}
-
-export default AnchorComponent
+export default AnchorComponent;

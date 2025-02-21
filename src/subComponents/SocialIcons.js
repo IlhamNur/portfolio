@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import React from "react";
-// import { NavLink } from 'react-router-dom'
 import styled from "styled-components";
-import { Facebook, Github, Twitter, YouTube } from "../components/AllSvgs";
+import { Facebook, Github, Instagram, LinkedIn } from "../components/AllSvgs";
 import { DarkTheme } from "../components/Themes";
 
+// Container for social icons
 const Icons = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,6 +19,10 @@ const Icons = styled.div`
   & > *:not(:last-child) {
     margin: 0.5rem 0;
   }
+
+  @media (max-width: 768px) {
+    left: 1rem; // Adjust for smaller screens
+  }
 `;
 
 const Line = styled(motion.span)`
@@ -28,77 +32,77 @@ const Line = styled(motion.span)`
     props.color === "dark" ? DarkTheme.text : DarkTheme.body};
 `;
 
+const SocialIconWrapper = styled(motion.div)`
+  &:hover svg {
+    transform: scale(1.1); // Slight zoom effect on hover
+    transition: transform 0.3s ease;
+  }
+`;
+
 const SocialIcons = (props) => {
+  const iconColor = props.theme === "dark" ? DarkTheme.text : DarkTheme.body;
+
   return (
     <Icons>
-      <motion.div
-        initial={{scale:0 }}
+      <SocialIconWrapper
+        initial={{ scale: 0 }}
         animate={{ scale: [0, 1, 1.5, 1] }}
         transition={{ type: "spring", duration: 1, delay: 1 }}
       >
         <a
-          style={{ color: "inherit" }}
+          href={"https://github.com/IlhamNur/"}
           target="_blank"
-          href={"https://github.com/codebucks27"}
+          rel="noopener noreferrer"
+          aria-label="GitHub"
         >
-          <Github
-            width={25}
-            height={25}
-            fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
-          />
+          <Github width={25} height={25} fill={iconColor} />
         </a>
-      </motion.div>
-      <motion.div
-        initial={{scale:0 }}
+      </SocialIconWrapper>
+
+      <SocialIconWrapper
+        initial={{ scale: 0 }}
         animate={{ scale: [0, 1, 1.5, 1] }}
         transition={{ type: "spring", duration: 1, delay: 1.2 }}
       >
         <a
-          style={{ color: "inherit" }}
+          href={"https://www.instagram.com/ilhamm.nr/"}
           target="_blank"
-          href={"https://twitter.com/code_bucks"}
+          rel="noopener noreferrer"
+          aria-label="Instagram"
         >
-          <Twitter
-            width={25}
-            height={25}
-            fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
-          />
+          <Instagram width={25} height={25} fill={iconColor} />
         </a>
-      </motion.div>
-      <motion.div
-        initial={{scale:0 }}
+      </SocialIconWrapper>
+
+      <SocialIconWrapper
+        initial={{ scale: 0 }}
         animate={{ scale: [0, 1, 1.5, 1] }}
         transition={{ type: "spring", duration: 1, delay: 1.4 }}
       >
         <a
-          style={{ color: "inherit" }}
+          href={"https://facebook.com/ilham.nur.9250595"}
           target="_blank"
-          href={"https://facebook.com/codebucks27"}
+          rel="noopener noreferrer"
+          aria-label="Facebook"
         >
-          <Facebook
-            width={25}
-            height={25}
-            fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
-          />
+          <Facebook width={25} height={25} fill={iconColor} />
         </a>
-      </motion.div>
-      <motion.div
-        initial={{scale:0 }}
+      </SocialIconWrapper>
+
+      <SocialIconWrapper
+        initial={{ scale: 0 }}
         animate={{ scale: [0, 1, 1.5, 1] }}
         transition={{ type: "spring", duration: 1, delay: 1.6 }}
       >
         <a
-          style={{ color: "inherit" }}
+          href={"https://www.linkedin.com/in/ilham-nur-romdoni-167263206/"}
           target="_blank"
-          href={"https://youtube.com"}
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
         >
-          <YouTube
-            width={25}
-            height={25}
-            fill={props.theme === "dark" ? DarkTheme.text : DarkTheme.body}
-          />
+          <LinkedIn width={25} height={25} fill={iconColor} />
         </a>
-      </motion.div>
+      </SocialIconWrapper>
 
       <Line
         color={props.theme}

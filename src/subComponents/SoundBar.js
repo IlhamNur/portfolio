@@ -1,81 +1,84 @@
-import React, { useRef, useState } from 'react'
-import styled, { keyframes } from 'styled-components'
+import React, { useRef, useState } from "react";
+import styled, { keyframes } from "styled-components";
+import music from "../assets/audio/One Piece ~ Kokoro No Chizu but it's lofi.mp3";
 
-import music from "../assets/audio/u-said-it-v13-1167.mp3"
-
+// Box container for soundbar
 const Box = styled.div`
-display:flex;
-cursor:pointer;
-position:fixed;
-left:8rem;
-top:3rem;
-z-index:10;
+  display: flex;
+  cursor: pointer;
+  position: fixed;
+  left: 8rem;
+  top: 3rem;
+  z-index: 10;
 
-&>*:nth-child(1){
+  &:hover {
+    transform: scale(1.1); // Optional: Add hover effect for better interaction
+  }
+
+  & > *:nth-child(1) {
     animation-delay: 0.2s;
-}
-&>*:nth-child(2){
+  }
+  & > *:nth-child(2) {
     animation-delay: 0.3s;
-}
-&>*:nth-child(3){
+  }
+  & > *:nth-child(3) {
     animation-delay: 0.4s;
-}
-&>*:nth-child(4){
+  }
+  & > *:nth-child(4) {
     animation-delay: 0.5s;
-}
-&>*:nth-child(5){
+  }
+  & > *:nth-child(5) {
     animation-delay: 0.8s;
-}
-`
+  }
+`;
 
 const play = keyframes`
-0%{
-    transform:scaleY(1);
-}
-50%{
-    transform:scaleY(2);
-}
-100%{
-    transform:scaleY(1);
-}
-`
-const Line = styled.span`
-background: ${props => props.theme.text};
-border: 1px solid ${props => props.theme.body};
+  0% {
+    transform: scaleY(1);
+  }
+  50% {
+    transform: scaleY(2);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+`;
 
-animation:${play} 1s ease infinite;
-animation-play-state: ${props => props.click ? "running" : "paused"};
-height: 1rem;
-width: 2px;
-margin:0 0.1rem
-`
+const Line = styled.span`
+  background: ${(props) => props.theme.text};
+  border: 1px solid ${(props) => props.theme.body};
+
+  animation: ${play} 1s ease infinite;
+  animation-play-state: ${(props) => (props.click ? "running" : "paused")};
+  height: 1rem;
+  width: 2px;
+  margin: 0 0.1rem;
+`;
 
 const SoundBar = () => {
+  const ref = useRef(null);
+  const [click, setClick] = useState(false);
 
-    const ref = useRef(null);
-    const [click, setClick] = useState(false);
-
-    const handleClick = () => {
-        setClick(!click);
-
-        if(!click){
-            ref.current.play();
-        }else{
-            ref.current.pause();
-        }
+  const handleClick = () => {
+    setClick(!click);
+    if (!click) {
+      ref.current.play();
+    } else {
+      ref.current.pause();
     }
-    return (
-        <Box onClick={() => handleClick()}>
-            <Line click={click}/>
-            <Line click={click}/>
-            <Line click={click}/>
-            <Line click={click}/>
-            <Line click={click}/>
+  };
 
+  return (
+    <Box onClick={handleClick} role="button" aria-label="Toggle music">
+      <Line click={click} />
+      <Line click={click} />
+      <Line click={click} />
+      <Line click={click} />
+      <Line click={click} />
 
-            <audio src={music} ref={ref}  loop />
-        </Box>
-    )
-}
+      <audio src={music} ref={ref} loop />
+    </Box>
+  );
+};
 
-export default SoundBar
+export default SoundBar;

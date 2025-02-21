@@ -16,11 +16,10 @@ const Box = styled.div`
 `;
 
 const ParticlesComponent = (props) => {
-// This is new implementation where I have used react-tsparticles instead of react-particles-js
+  // This is new implementation where I have used react-tsparticles instead of react-particles-js
   const particlesInit = async (main) => {
     await loadFull(main);
   };
-
 
   return (
     <Box>
@@ -28,7 +27,7 @@ const ParticlesComponent = (props) => {
         id="tsparticles"
         style={{ position: "absolute", top: 0 }}
         params={props.theme === "light" ? ConfigLight : ConfigDark}
-        init={particlesInit} 
+        init={particlesInit}
       />
     </Box>
   );

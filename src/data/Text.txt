@@ -10,39 +10,20 @@ Fonts
 
 ----------------------------------------------
 
-
-Skills
-----------------------------------------------
-I love to create design which speaks, Keep it clean, minimal and simple.
-I LIKE TO DESIGN
-Web Design
-Mobile Apps
-TOOLS
-Figma
-
-I value business or brand for which i'm creating, thus i enjoy bringing new ideas to life.
-SKILLS
-Html, Css, Js, React, Redux, Sass, Bootstrap, Tailwind, Firebase etc.
-
-TOOLS
-VScode, Github, Codepen etc.
-
-----------------------------------------------
-
 About Text
 
 ----------------------------------------------
-I'm a front-end developer located in India. I love to create simple yet beautiful websites with great user experience.
+Hi, I'm Ilham. I am interested in becoming a Fullstack Developer.
 
-I'm interested in the whole frontend stack Like trying new things and building great projects. I'm an independent freelancer and blogger. I love to write blogs and read books.
+I once interned as Webmaster in the Department of Cooperation, Development, and Internationalization of Sebelas Maret University in 2022.
 
-I believe everything is an Art when you put your consciousness in it. You can connect with me via social links.
+I have also participated in the Startup Campus Batch 3 2022 program.
 ----------------------------------------------
 
 
 Theme
 ----------------------------------------------
-    body:"#FCF6F4",
+    body:"#FFFFFF",
     text:"#000000",
     fontFamily:"'Source Sans Pro', sans-serif",
     bodyRgba : "252, 246, 244",
