@@ -84,6 +84,16 @@ const Git = styled.a`
   }
 `;
 
+// Add image styling
+const Image = styled.img`
+  width: 100%;
+  height: 50%;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  max-height: 100%;
+`;
+
 // Framer motion configuration
 const Item = {
   hidden: {
@@ -99,10 +109,13 @@ const Item = {
 };
 
 const Card = (props) => {
-  const { id, name, description, tags, demo, github } = props.data;
+  const { id, name, description, tags, demo, github, image } = props.data;
 
   return (
     <Box key={id} variants={Item}>
+      {/* Image Section */}
+      <Image src={image} alt={`Screenshot of ${name}`} />
+
       <Title>{name}</Title>
       <Description>{description}</Description>
       <Tags>
