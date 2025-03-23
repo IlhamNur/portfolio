@@ -57,7 +57,7 @@ Proyek ini dilisensikan di bawah **MIT License** – bebas digunakan dan dimodif
 ## 📬 Kontak
 Jika ada pertanyaan atau saran, hubungi saya di:
 📧 **Email:** romdhoninuril@gmail.com  
-🔗 **LinkedIn:** [Ilham Nur Romdoni]([https://linkedin.com/in/ilhamnur](https://www.linkedin.com/in/ilham-nur-romdoni-167263206/))  
+🔗 **LinkedIn:** [Ilham Nur Romdoni](https://www.linkedin.com/in/ilham-nur-romdoni-167263206/)  
 🐙 **GitHub:** [IlhamNur](https://github.com/IlhamNur)
 
 ---
