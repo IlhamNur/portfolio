@@ -56,9 +56,9 @@ This project is licensed under the **MIT License** – free to use and modify.
 
 ## 📬 Contact
 If you have any questions or suggestions, contact me at:
-📧 **Email:** romdhoninuril@gmail.com
-🔗 **LinkedIn:** [Ilham Nur Romdoni](https://www.linkedin.com/in/ilham-nur-romdoni-167263206/)
-🐙 **GitHub:** [IlhamNur](https://github.com/IlhamNur)
+- 📧 **Email:** romdhoninuril@gmail.com
+- 🔗 **LinkedIn:** [Ilham Nur Romdoni](https://www.linkedin.com/in/ilham-nur-romdoni-167263206/)
+- 🐙 **GitHub:** [IlhamNur](https://github.com/IlhamNur)
 
 ---
 ✨ Thank you for visiting this project! Hope it is useful. 🚀
