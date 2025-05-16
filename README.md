@@ -1,4 +1,4 @@
-# 🚀 React Portfolio
+# 🚀 Portfolio
 
 ## 📌 Description
 This project is a **React.js** based personal portfolio designed to showcase the developer's experience, skills, and projects they have worked on.
