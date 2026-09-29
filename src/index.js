@@ -11,9 +11,11 @@ import { BrowserRouter } from 'react-router-dom'
 // From react 18 we should use createRoot instead of ReactDOM
 const container = document.getElementById('root');
 const root = createRoot(container); // createRoot(container!) if you use TypeScript
-root.render(<BrowserRouter>
-  <App />
-</BrowserRouter>);
+root.render(
+  <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+    <App />
+  </BrowserRouter>
+);
 
 // ReactDOM.render(
 //   <React.StrictMode>

@@ -1,8 +1,17 @@
 import { render, screen } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+beforeAll(() => {
+  window.scrollTo = jest.fn();
+});
+
+test('renders App component', () => {
+  render(
+    <BrowserRouter future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <App />
+    </BrowserRouter>
+  );
+  // The 'learn react' text doesn't exist in this portfolio app,
+  // so we just verify that the App renders without crashing.
 });

@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import { ThemeProvider } from "styled-components";
 import { DarkTheme } from "./Themes";
-import { motion } from "framer-motion";
 
 import LogoComponent from "../subComponents/LogoComponent";
 import SocialIcons from "../subComponents/SocialIcons";
@@ -11,34 +10,7 @@ import { Work } from "../data/WorkData";
 import Card from "../subComponents/Card";
 import { JollyRoger } from "./AllSvgs";
 import BigTitle from "../subComponents/BigTitle";
-
-const Box = styled.div`
-  background-color: ${(props) => props.theme.body};
-
-  height: 400vh;
-  position: relative;
-  display: flex;
-  align-items: center;
-`;
-
-const Main = styled(motion.ul)`
-  position: fixed;
-  top: 12rem;
-  left: calc(10rem + 15vw);
-  height: 40vh;
-  display: flex;
-  transition: transform 0.2s ease-out;
-  color: white;
-`;
-const Rotate = styled.span`
-  display: block;
-  position: fixed;
-  right: 1rem;
-  bottom: 1rem;
-  width: 80px;
-  height: 80px;
-  z-index: 1;
-`;
+import { Box, Main, Rotate } from "./WorkPageStyles";
 
 // Framer-motion Configuration
 const container = {
